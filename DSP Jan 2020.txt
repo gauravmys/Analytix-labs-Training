@@ -485,7 +485,7 @@ Python Syntax Rules :
 =========================
 - talks about the type of the data present in a variable
 	number or text 
-				python 3.x	      pandas
+				python 3.x	  pandas/np
 number				
     small, w/o decimls		int		int8,int16,int32	
     large, w/o decimals		int		int64
@@ -519,6 +519,374 @@ date and times
 	x = 100
 	# convert x to string
 	str(x)
+-----------------------------------------------------------------
+Data Structures
+----------------
+- how the information is stored
+	- one object with one value
+	- one object with multiple values - homgenous			arrays		
+	- one object with multiple values - heterogenous
+	- one object with multiple values
+		in 2 dim  		  - homgenous			matrix
+	- one object with multiple values
+		in 2 dim 		  - heterogenous		table
+
+	- > 2 dim							vectors, lists etc
+
+
+
+
+
+- DS with base python
+	- four data structures
+		- tuple
+		- list
+		- set
+		- dictionary
+
+	- all the four data structures
+		- 1 dimentional
+		- all heterogenous
+
+
+	- create/import
+	- extracting elements
+	- applying conditions
+	- specific functions associated with the DS
+---------------------------------------------------------------
+tuple
+	- create
+		- ()
+	- extracting elements - indexing
+		- indexing in python begins with 0
+		- we shall use [] for indexing
+		- we need to pass index to get the value
+
+	- applying conditions
+	- specific functions associated with the DS
+
+lists
+	- create/import
+		- by using []
+	- extracting elements
+		- this is exactly SAME as tuples
+
+		t1[7] ---> 8th element		
+		l1[7] ---> 8th element
+
+
+
+	insert into emp values (12,'abc',53738,'21Jan2020','BLR')
+
+---------------------------------------------------------------
+- conditionals
+
+	if...then...else	
+	
+	// see if x is pos or neg
+	if(x > 0){
+	    printf("pos");
+	}
+	else{
+	    printf("neg");
+	}
+
+	if(x > 0){
+	    printf("pos");
+	}
+	else{
+	    printf("neg");
+	}
+	printf("we are out of the conditions)
+	
+	if x > 0:
+	    print("pos")
+	    print("yes")
+	else:
+	    print("neg")
+	    print("nope")
+        print("we are out of the conditions)
+
+
+- loops
+---------------------------------------------------------------
+x = -10				x = -10
+if x == 0:			if x == 0:			
+    print("zero")		    print("zero")
+elif x > 0:			else:
+    print("pos")		    if x > 0:
+else:					print("pos")
+    print("neg")		    else:
+					print("neg")
+
+----------------------------------------------------------------
+Loops
+--------
+
+- while loop (condition based loop)
+- for loop (in general, range based loop)
+	- in python - for loop is a loop on 1d DS
+---------------------------------------------------------------
+
+
+- Sytax Rules
+- data types
+- data structures
+	- tuples
+	- list
+	- set
+	- dict
+- program aspects
+	- conditionals
+	- loops
+----------------------------
+	- user defined functions
+	- modules
+	- packages
+	- OOP in python
+----------------------------
+Function:
+	- named set of codes that does a specific task
+	- they're the basic facilitator for code reusability
+	- functions can have
+		- inputs --> arguments
+		- outputs --> print, return
+	- def is used to define functions
+	- arguments
+		- default arguments
+		- keyword arguments (kwargs)
+
+
+
+Recap
+-----
+-> Syntax Rules
+-> Operators
+	Assignment
+	Arithmatic
+	Relational
+	Logical
+	Others
+		?		
+		.
+		in 
+		not in
+-> Data Types
+			python
+	Numbers
+			int
+			float
+	Text
+			str
+	boolean		bool
+
+	1. type()
+	2. type casting functions
+		str()
+		float()
+		int()
+		bool()
+		
+	3. order of the datatypes
+		str
+		float
+		int
+		bool
+-> Data Structures
+	- storage and access mechanism
+	- base python - 1 dimentional and heterogenous DS
+		- tuples
+			()
+		- list
+			[[12,43,23],[66,33,25],[43,23,55]]
+
+		- set 
+			{}
+		- dict
+			{key1:value1,key2:value2,...}
+	- 1. Create
+	  2. extraction
+	  3. applying conditions
+	  4. attributes
+-> Programatic Elements
+	- conditionals
+	- loops
+
+
+
+
+
+
+l1 = [[12,43,23],{66,33,25},43,23,"abcd",(1,6,5,4,3)]
+
+
+for ele in l1:
+    if type(ele) == int or type(ele) == float:
+    	pass
+    else:
+	print(len(ele))
+
+-> functions
+    1.
+	def FuncName(arg1,agr2):
+	    defn
+            defn
+	    defn
+	    return x
+    2. default arguments
+	def FuncName(arg1=0,agr2=0,arg3="abc"):
+	
+	args
+    3. Keyword arguments kwargs
+	
+	AddNum(10,20)
+	AddNum(x=10,y=20)
+
+	*** Rule ****
+	   if we are using a mix of args and kwargs,
+ 	   use all the kwargs after the args
+
+    4. Multiple arguments
+	- multiple positional arguments
+		*args
+
+	- multiple key-word arguments
+		**kwargs
+
+Module
+	- any python files - ----->  .py
+	- as usual, it contains variables and functions
+	- modules are REUSABLE
+		- the module needs to be imported
+		- all functions and vars can be reused
+		- for making a module available for re-use
+		  	- copy that module inside the python 
+			  Lib (libraries) folder
+			- or else place it inside the current
+			  folder
+			- else, we'll get a ModuleNotFoundError
+	- how to import a module?
+		import <modulename>
+
+		- that python module gets executed
+			- .pyc
+		- all functions in that module are now ready
+	  	  to be used
+		- we can use alias while importing which 
+		  makes usability easier
+
+	- how to use functions/variables from that importred module?
+	
+		module.function()
+		module.var
+
+
+
+
+	Loops vs No Loops
+		 (vectorization)
+
+- module
+	- pre defined modules 
+		APIs
+	- user defined
+		- to be used for a specific purpose
+		- they can be shared with rest of the world
+			- which can be downloaded and used 
+			  by other users
+- packages
+	- collection of modules - it's a folder containing
+	  modules
+	- this folder has the user defined modules or .py files	
+	- but for a folder to be qualified as a package, it
+	   must have __init__.py
+	- all the reusable packages are present in site-packages
+		inside Lib folder 
+	- the reusable modules are organized in form of packages
+	  and shared with the users
+	- How to download and install these packages?
+		pip install <pacakge_name>   --> Python Repository (PyPi)
+		conda install <pack_name>
+
+
+		- pandas
+			pip install pandas
+				- checks if any version of pandas
+				  is currently installed in the system 
+				  or not
+					if yes, then no installation is done!
+				- also checks for dependency packages
+			- what if none of the versions are installed
+				- the package and the dependency packages
+			   	  that are currently not installed will be
+				  downloaded and installed
+			
+		pip install --upgrade pandas
+
+		conda install --upgrade pandas
+
+	- it's better to install in anaconda prompt for windows
+		users
+---------------------------------------------------------------
+
+- Packages used in the foundation module
+	1. numpy
+		- numerical python
+		- maths, stats and application functions
+		- matrix operations
+	2. pandas
+		- panel data analysis tool
+		- provides a 2d table to python DS
+			(DataFrame)
+		- also gives functions to work with the 2d table
+	3. matplotlib
+		- the major contributor to graphs
+			- provides a canvas to draw graphs on
+			- also it has functions to draw graphs
+	4. seaborn
+		- alternative to matplotlib
+		- uses the canvas provided by matplotlib
+		- has it's own functions
+		- it has many machine learning related graphs
+	5. scipy
+		- pred modelling, applied stats and 
+ 		  inferential stats functions
+		- can work with pandas and numpy inputs
+		  
+
+--------------------------------------------------------------
+Numpy
+	- numpy data structure
+		- create
+		- access elements
+		- apply conditions
+		- attributes
+-> What DS?
+	- ndarray : 
+		nd : n dimentions
+		array : a linear DS which is homogenous
+
+
+	array([12,34,56,43,26,78,54,23])
+	
+	array([[23,54,36],[5,8,4],[1,8,6]])
+
+		23  54  36
+		5   8   4
+		1   8   6
+
+	- ndarray is completely vectorized
+		- loops that needs to be applied on a DS
+		   is pre-implemented
+		- user needs to use that facility using some 
+		  functions or symbols
+		- 
+
+	l1[0:5]
+
+
+	for i in range(0,5):
+	    print(l1[i])
 
 
 
@@ -544,33 +912,12 @@ date and times
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Pandas Series
+	- one dim, homogenous
+	- create
+	- access
+	- apply conditions
+	- attributes
 
 
 
