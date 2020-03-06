@@ -1186,6 +1186,277 @@ stores.Performance from object  --->   int64
 
 
 
+Content Based
+- filtering
+- sorting
+- replacing values in the data
+- removing duplicates
+- adding columns with conditions
+- binning
+- encoding
+	- label
+	- Onehot
+- aggregations
+	
+	1.
+		_temp = df.groupby(by = [])
+		_temp[[""]].sum()
+- reshaping
+- merging or joins
+- missing values
+- outliers
+- user defined functions and apply it on data frames
+---------------------------------------------------------------
+pd.merge()
+	
+	- left = and 
+          right = 
+
+		left = Emp
+		right = Dept
+
+
+	- on = ["col1","col2"...]  or,
+			
+		Emp_ID
+		on = "Emp_ID"
+		
+		Emp -> "Emp_ID"
+		Dept -> "Employee_ID"
+
+	   left_on = and
+	   right_on = 
+	- how = 
+		"inner"
+		"outer"
+		"left"
+		"right"
+
+---------------------------------------------
+EDA and Predictive modelling
+
+-> we deal with past data
+-> if the data has missings - Missing values
+	NaN needs to be imputed
+-> if the data has extreme values - Outliers
+	Outliers needs to be capped
+
+       min     LC		     UC         max
+	._______|_____________________|__________.
+			
+	-> we decide on Lower Cutoff and Upper Cutoff
+		- Method 1 : IQR
+			Inter Quartile Range
+			
+			Q1 = ser.quantile(0.25)
+			Q3 = ser.quantile(0.75)
+			IQR = Q3 - Q1
+			LC = Q1 - 1.5 * IQR
+			UC = Q3 + 1.5 * IQR
+
+
+
+	-> any data point that is < LC AND any data > UC
+	   they're called outliers
+
+		series[(series < LC) | (series > UC)]
+	-> any value < LC, replace with LC
+           any value > UC, replace with UC
+
+		series[series < LC] = LC
+		series[series > UC] = UC
+		or,
+		series.clip(lower=LC,upper=UC)
+
+
+
+-> imputing missing values
+	-> missing values NaNs needs to be dropped
+		- when we have many rows, we can easily drop
+		  the missing rows
+	-> a column containing many missing values ~ 20% of missings
+		- we'll simply drop the column
+		- or, if the column is important,
+		  we can create a subset based on the col
+	-> missing values can be replaced - with the Central Tendencies
+		- Central Tendency
+			mean -> average
+				for symmetric numerical data
+			median -> 50th %ile value of the data
+				for any numerical data
+			mode -> highest occuring value/cat in a 
+				any cat variable
+	-> missing values can be replaced with any default value
+		
+
+- Using User defined functions on a DataFrame
+	- any task on a DF happens on each column
+	
+	def remove_missings(x):
+            return x.fillna(x.mean())
+
+
+
+- Visualizations
+-------------------
+
+
+- End to end tasks on data manipulations
+=========================================
+Metrics
+--------------------------------------------------------------
+Continuous					Categorical
+----------					-----------
+sum						freq
+mean						proportions
+median
+quantiles
+percentiles
+--------------------------------------------------------------
+Visulalization
+--------------
+	- Distribution charts
+		- talk about the extent of a variable
+		- qualtiles on a graph
+		- one variable scatter 
+		- histogram
+			- y var into many number of smaller bins
+			- for each bin, we calc the freq
+			- and draw a bar graph
+		- pie chart for one variable cat
+		- wordcloud
+
+	- Trend Charts
+		- also a distribution chart - where time is invloved
+	- Compostion Charts
+		- talks about the constituents of a cat variable
+		- pie chart
+		- stacked bar plot
+	- Comparision Charts
+		- it is helpful in comparing one or more numerical 
+		  entities
+		- bar graph
+
+Univariate
+==========
+Continuous					Categorical
+----------					-----------
+whisker plot					bar
+scatter						pie
+hist
+trend
+----------------------------------------------------------------
+Bivariate
+==========
+cont - cont		     cat - cont		    cat - cat
+-----------		    -------------	   ------------
+correlation		    aggregations	   crosstab	   
+(% of relation)
+scatterplot		    bar			   bar
+			    stacked bar		   pie
+			    dodged bar
+			    pie
+			   ---------------   	   ------------ 
+			    ANOVA		   Chi Sq Test
+
+
+
+boxplot/whisker
+histogram
+scatter
+	- one var
+	- two vars
+bar
+	- one var
+	- aggregations
+pie
+	- one var
+	- aggregations
+----------------------------------------------------------------
+python graphs
+=============
+matplotlib pacakge
+------------------
+	- provides a canvas where graphs can be drawn
+	- functions to do graphs
+		hist(), bar(), barh(), pie() etc
+	- default graphing package
+seaborn package
+-----------------
+	- also a graphing package
+	- has it's own functions to draw graphs
+	  quiet different from matplotlib
+	- but it uses the same canvas of matplotlib
+	- this is a library which is close to ML visualization
+---------------------------------------------------------------
+bokeh
+------
+	- java based vis package
+plotly
+------
+	- paid package in python
+	- gives interactive graphs
+plotnine
+---------
+	- ggplot2 implementation in python
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
