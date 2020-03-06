@@ -888,6 +888,176 @@ Numpy
 	for i in range(0,5):
 	    print(l1[i])
 
+---------------------------------------------------------------
+Pandas
+
+	Series
+		- 1 dim, homogenous DS
+		- loc and iloc
+		- iloc --> 0 to len-1
+		- loc  --> custom indexes
+			iloc == loc - by default
+
+		- Accessing elements ->
+
+			ser1.iloc[5]
+			ser1.loc["abc"]
+		- applying conditions
+			- boolean indexing
+
+			ser1[(ser1 > 30)]			
+			ser1.loc[(ser1 > 30)]
+
+	- Vectorization
+		- Broadcasting
+			if we apply any any mathematical operator 
+			on two sereis/ndarray of SAME SIZE, then
+			that operator is applied on each and every
+			element in that DS
+---------------------------------------------------------------
+
+Data types
+Data Structures
+	- tuples
+	- list ---- *******
+	- set
+	- dict ---- *******
+Programming elements
+	- conditions
+	- loops
+	- User defined functions - ******
+	- modules
+	- Object Oriented  --> XXXXXXX
+
+numpy
+	- ndarray
+
+pandas
+	- Series
+----------------------------------------------------------------
+Dataframes
+----------
+
+	- tables - 2 dimentional, hetrerogenous DS
+	- rows (indexed) and columns (named)
+	- columns are homogenous - Series
+	- collection of Series
+
+	Topics : 
+	1. Create and Importing Dataframes
+	2. Data munging and operations
+		- data manipulations
+			- structure
+			- content
+		- operations
+	3. Visualizations
+	4. Business Knowledge/Heuristics
+	5. Introductory Statistics
+#--------------------------------------------------------------
+-> Creating and Importing
+#-------------------------
+
+1. Creating DF from a dictionary
+2. Creating a DF from a set of Series
+
+--- Directory handling
+
+	- import os
+	- os.getcwd()
+	- File path
+		- single /
+		- a double \\
+		- use a raw string - a stirng with no syntax
+				     functionality
+
+
+3. Importing data from a text delimited/CSV file
+4. Importing data from xls/xlsx/xlsm
+	- xlsb can't be read in python 
+5. Importing data from SAS
+6. Connecting to a DBMS
+
+
+
+Unicode
+
+encoding = "utf-8"
+----
+UnicodeDecodeError
+
+	read_csv("file.csv",encoding="Latin-1")
+---------------------------------------------------------------
+- Connecting to DBMS -
+---------------------------------------------------------------
+Data Manipulations
+--------------------
+
+- Basic Explorations
+	(metadata)
+
+	1. df.shape
+	2. df.columns
+	3. df.dtypes
+
+- Structure Manipulations
+	- extract/subset columns
+	- add a column
+	- delete a column
+	- rename a column
+	- re-arrange columns
+	- change the datatype of the column
+- Content based manipulations
+	- filtering/applying conditions
+	- replacing values
+	- remove duplicated data
+	- sorting
+	- Binning and Encoding - conditionally adding a column
+	- reshaping data
+	- aggregation
+	- merging
+	- appending
+	- statistics
+		- missing values
+		- outlier removal
+- Data Visulaizations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
