@@ -1001,27 +1001,81 @@ Data Manipulations
 
 - Structure Manipulations
 	- extract/subset columns
+		- .
+		- [[]]
+		- df.loc[:,] or .iloc[:,]
 	- add a column
+		- df["newcol"] = ...
+		- df = df.assign(newcol = ...)
 	- delete a column
+		- del df["col"]
+		- df = df.drop(columns = [])
 	- rename a column
+		- df = df.rename(columns = {"existing_name1":"new_name1"})
 	- re-arrange columns
+		- df = df.iloc[:,[all columns in your own order]]
 	- change the datatype of the column
+		- df.column = df.column.astype(str)
+		- df.column = df.column.astype(bool)
+		- df.column = pd.to_numeric(df.column, errors = "coerce")
+		- pd.to_datetime(df.col, format = strptime symbols)
+
 - Content based manipulations
 	- filtering/applying conditions
+	- sorting
 	- replacing values
 	- remove duplicated data
-	- sorting
 	- Binning and Encoding - conditionally adding a column
-	- reshaping data
 	- aggregation
-	- merging
 	- appending
+
+	- reshaping data
+	- merging
 	- statistics
 		- missing values
 		- outlier removal
 - Data Visulaizations
 
 
+datetime
+--------
+	datetime64 : 
+	- date in python is no of days from 1st Jan 1970
+	- time in python is no of seconds (epoch) from
+	   1st Jan 1970 00:00:00
+	- datetime --> internally they're numbers
+			date1 - date2
+			
+	1. Converting a string to a "proper" date/time
+		object -> datetime64
+	2. Extracting date components
+		day, month, year, mins, hrs, sec etc
+	3. Date differences
+	4. Dates prior to 1st Jan 1970
+	5. Formatting dates to a required format 
+	 	YYYY-MM-DD
+strptime --> string processing of time
+strftime --> string formatting of time
+day
+	day no				%d
+	day name 			%A
+	day name abbr			%a
+month
+	month no			%m
+	month name			%B
+	month abbr			%b
+year
+	year with cent			%Y
+	w/o cent			%y
+hours
+	12				%I
+	am/pm				%p
+	24				%H
+min					%M
+sec					%S
+---------------------------------
+Result ---->   YYYY-MM-DD HH:MM:SS
+		%Y-%m-%d %H:%M:%S
 
 
 
@@ -1029,14 +1083,99 @@ Data Manipulations
 
 
 
+Binning and Encoding - conditionally adding a column
+
+Numbers - -Inf to inf
+Categorize - 
+
+Continuous 				   Categorical
+----------				-----------------
+apply any arithmatic		     we can use them as identifiers
+and get insights		     we can use for aggregations
+				Nominal		     Ordinal
+TotalSales			gender		     payscale
+MonthlyIncome			location/zone	     taxslab
+AnnualRevenue			color-coding	     designation
+Distance			own_store	     dress_size
+Speed				teams		     age_groups
+CostPrice			modes_of_transport
+no_of_customers			payment_gateway
+Tax				product_category
+
+
+Encoding
+---------
+	Label Encoding
+	- all the stats functions need "numbers" as input
+	- they'll throw an error if the input is a string
+	- the strings needs to be converted to numbers
+
+		Location     ------>    Location_ID
+		--------		------------
+		delhi			2		 
+		mum			4
+		chn			1
+		kol			3
+	- Each category of a categorical variable is assigned
+	  a number to it
+	- Instead of strings we now have numbers
+	- label Encoding is logically valid for Ordinal Vars
+
+	Onehot Encoding/Dummy Variables
+	- create n variables for n categories
+	- the value in each of these vars/cols
+		they're 1 or 0
+
+Binning
+	- converting a continuos var intoa categorical var
+	- by defining bins/buckets/breaks on a cont var
+	Heuristic Binning : 
+	E.g. AgeGroups	----> Age(cont)
+
+
+		< 18  --> Child
+		18 - 35 ---> youth
+		35 - 50 ---> middle aged
+		> 50 --> senior
+	Range Based Binning
+		- percentiles
+		- deciles
+		- quantiles
 
 
 
 
 
+Task
+Derive a variable "Performance" from TotalSales
+	
+	cat			conditions
+       ------			----------
+	low			 < 100
+	med			100 - 200
+	high			200 - 300
+	vhigh			> 300
+
+ts = stores.TotalSales
+stores["Performance"] = np.where((ts < 100), "Low",
+	 np.where((ts > 100) & (ts < 200),"med",
+                 np.where((ts>200) & (ts<300),"high","vhigh")))
 
 
+Label Encoding
+--------------
+# Performance Variable
+# Convert the var Performance into a label encoded varibale
 
+stores.Performance from object  --->   int64 
+	low		1
+	med		2
+	high		3	
+	vhigh		4
+
+	
+	np.where(sp == "low",1,np.where(sp=="med",2,np.where(sp=="high",3,4)))
+--------------------------------------------------------
 
 
 
